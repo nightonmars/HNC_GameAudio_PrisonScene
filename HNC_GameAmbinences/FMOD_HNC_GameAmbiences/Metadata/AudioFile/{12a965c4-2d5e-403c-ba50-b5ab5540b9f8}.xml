@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{12a965c4-2d5e-403c-ba50-b5ab5540b9f8}">
+		<property name="assetPath">
+			<value>FootstepsBoots/Concrete_Boots_Att_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.12229166666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{151cccc8-f404-412d-aa0c-77b5c2385b7b}</destination>
+		</relationship>
+	</object>
+</objects>
