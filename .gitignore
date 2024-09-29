@@ -2,8 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
-/HNC_GameAmbiences/[Ll]ibrary/
-
+/HNC_GameAmbinences/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
@@ -105,4 +104,3 @@ src/LDJam55/.vscode/extensions.json
 src/LDJam55/.vscode/launch.json
 src/LDJam55/.vscode/settings.json
 src/LDJam55/fmod_editor.log
-
