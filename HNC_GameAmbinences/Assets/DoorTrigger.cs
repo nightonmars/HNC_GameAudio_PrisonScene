@@ -25,8 +25,13 @@ public class DoorTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ani.SetTrigger(openDoorHash);
-            RuntimeManager.PlayOneShotAttached(doorSound, doorPosition); 
+            OpenDoor();
         }
+    }
+    [ContextMenu("Open Door")]
+    void OpenDoor()
+    {
+        ani.SetTrigger(openDoorHash);
+        RuntimeManager.PlayOneShotAttached(doorSound, doorPosition); 
     }
 }

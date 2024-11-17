@@ -1,0 +1,76 @@
+using UnityEngine;
+using FMOD.Studio;
+using FMODUnity;
+
+public class FloorContactChecker : MonoBehaviour
+{
+    public EventReference tableMovingSoundReference; // FMOD event reference
+    private EventInstance tableMovingSoundInstance;
+
+    private bool isOnFloor = true; // Tracks if the object is on the floor
+    public LayerMask floorLayer; // Define which layers are considered as "floor"
+    public float groundCheckRadius = 0.1f; // Radius for ground contact check
+    public Transform groundCheckPoint; // Point from where the ground check is performed
+
+    private Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (groundCheckPoint == null)
+        {
+            Debug.LogWarning("No ground check point assigned! Defaulting to object's position.");
+            groundCheckPoint = transform;
+        }
+
+        // Create FMOD event instance
+        tableMovingSoundInstance = RuntimeManager.CreateInstance(tableMovingSoundReference);
+    }
+
+    void Update()
+    {
+        // Perform ground check
+        bool wasOnFloor = isOnFloor;
+        isOnFloor = Physics.CheckSphere(groundCheckPoint.position, groundCheckRadius, floorLayer);
+
+        // Notify if the floor contact changes
+        if (isOnFloor && !wasOnFloor)
+        {
+            Debug.Log("Object regained contact with the floor.");
+            StopFMODSound(); // Stop the sound if it's playing
+        }
+        else if (!isOnFloor && wasOnFloor)
+        {
+            Debug.Log("Object lost contact with the floor!");
+            StartFMODSound(); // Start the sound when the object loses floor contact
+        }
+    }
+
+    private void StartFMODSound()
+    {
+        tableMovingSoundInstance.start();
+        Debug.Log("FMOD event started.");
+    }
+
+    private void StopFMODSound()
+    {
+        tableMovingSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Debug.Log("FMOD event stopped.");
+    }
+
+    private void OnDestroy()
+    {
+        // Release FMOD event instance to free resources
+        tableMovingSoundInstance.release();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Visualize the ground check radius in the editor
+        if (groundCheckPoint != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
+        }
+    }
+}
