@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2bc6c211-479d-42fc-9d38-2f4145eb1038}">
+		<property name="assetPath">
+			<value>Wood On Concrete-003.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5246354166666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{151cccc8-f404-412d-aa0c-77b5c2385b7b}</destination>
+		</relationship>
+	</object>
+</objects>

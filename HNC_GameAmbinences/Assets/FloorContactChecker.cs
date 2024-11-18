@@ -1,3 +1,5 @@
+using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
@@ -13,6 +15,8 @@ public class FloorContactChecker : MonoBehaviour
     public Transform groundCheckPoint; // Point from where the ground check is performed
 
     private Rigidbody rb;
+    private bool soundHasStarted = false;
+    private Vector3 orgPosition; 
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class FloorContactChecker : MonoBehaviour
 
         // Create FMOD event instance
         tableMovingSoundInstance = RuntimeManager.CreateInstance(tableMovingSoundReference);
+        orgPosition = rb.transform.position;
     }
 
     void Update()
@@ -33,30 +38,54 @@ public class FloorContactChecker : MonoBehaviour
         bool wasOnFloor = isOnFloor;
         isOnFloor = Physics.CheckSphere(groundCheckPoint.position, groundCheckRadius, floorLayer);
 
-        // Notify if the floor contact changes
         if (isOnFloor && !wasOnFloor)
         {
             Debug.Log("Object regained contact with the floor.");
-            StopFMODSound(); // Stop the sound if it's playing
         }
         else if (!isOnFloor && wasOnFloor)
         {
             Debug.Log("Object lost contact with the floor!");
-            StartFMODSound(); // Start the sound when the object loses floor contact
+        }
+
+        if (rb != null)
+        {
+            Vector3 velocity = rb.velocity;
+            Debug.Log("Rigidbody Velocity: " + velocity);
+
+            // Check if velocity has stopped
+            if (velocity.magnitude <= 0.01f) // Adjust threshold if necessary
+            {
+                Debug.Log("Velocity has stopped.");
+
+                if (soundHasStarted)
+                {
+                    StopFMODSound();
+                    soundHasStarted = false; // Reset the sound start flag
+                }
+            }
+            else
+            {
+                // Start FMOD sound if object is moving
+                Vector3 position = rb.transform.position;
+                if (position != orgPosition && !soundHasStarted)
+                {
+                    StartFMODSound();
+                    soundHasStarted = true;
+                }
+            }
         }
     }
 
     private void StartFMODSound()
     {
         tableMovingSoundInstance.start();
-        Debug.Log("FMOD event started.");
     }
 
     private void StopFMODSound()
     {
         tableMovingSoundInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        Debug.Log("FMOD event stopped.");
     }
+
 
     private void OnDestroy()
     {
