@@ -22,7 +22,7 @@ public class FMOD_FootStepManager : MonoBehaviour
     {
         footstep.start();
         footstep.setParameterByName("Terrain", pM_MatDetector.matIdx);
-        Debug.Log("footstep"); 
+//        Debug.Log("footstep"); 
     }
 
     private void OnDestroy()

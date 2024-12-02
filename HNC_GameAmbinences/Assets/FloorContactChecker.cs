@@ -40,22 +40,22 @@ public class FloorContactChecker : MonoBehaviour
 
         if (isOnFloor && !wasOnFloor)
         {
-            Debug.Log("Object regained contact with the floor.");
+           // Debug.Log("Object regained contact with the floor.");
         }
         else if (!isOnFloor && wasOnFloor)
         {
-            Debug.Log("Object lost contact with the floor!");
+         //   Debug.Log("Object lost contact with the floor!");
         }
 
         if (rb != null)
         {
             Vector3 velocity = rb.velocity;
-            Debug.Log("Rigidbody Velocity: " + velocity);
+//            Debug.Log("Rigidbody Velocity: " + velocity);
 
             // Check if velocity has stopped
             if (velocity.magnitude <= 0.01f) // Adjust threshold if necessary
             {
-                Debug.Log("Velocity has stopped.");
+             //   Debug.Log("Velocity has stopped.");
 
                 if (soundHasStarted)
                 {

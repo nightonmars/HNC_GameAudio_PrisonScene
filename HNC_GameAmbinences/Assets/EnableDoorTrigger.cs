@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnableDoorTrigger : MonoBehaviour
 {
    public Collider door;
+   public FMOD_MusicPlayer musicPlayer;
 
    private void Start()
    { 
@@ -17,7 +18,8 @@ public class EnableDoorTrigger : MonoBehaviour
       if (other.CompareTag("Mug"))
       {
         door.enabled = true;
-        Debug.Log("Door is triggered");
+        musicPlayer.doorOpenMusic();
+        //Debug.Log("Door is triggered");
       }
    }
 }

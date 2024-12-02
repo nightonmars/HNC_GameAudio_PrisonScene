@@ -9,6 +9,7 @@ public class DoorTrigger : MonoBehaviour
     public float doorSpeed = 0.3f;
     public EventReference doorSound;
     public GameObject doorPosition; 
+    public FMOD_MusicPlayer musicPlayer;
     
 
     // Store the hash of the trigger parameter
@@ -26,6 +27,7 @@ public class DoorTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             OpenDoor();
+            
         }
     }
     [ContextMenu("Open Door")]
@@ -33,5 +35,6 @@ public class DoorTrigger : MonoBehaviour
     {
         ani.SetTrigger(openDoorHash);
         RuntimeManager.PlayOneShotAttached(doorSound, doorPosition); 
+        musicPlayer.throughDoorOpenMusic();
     }
 }

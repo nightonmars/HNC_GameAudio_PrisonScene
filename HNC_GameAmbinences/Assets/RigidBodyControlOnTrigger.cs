@@ -22,7 +22,7 @@ public class RigidBodyControlOnTrigger : MonoBehaviour
             if (angle <= requiredApproachAngle)
             {
                 targetRigidbody.isKinematic = true; // Disable Rigidbody by making it kinematic
-             //   Debug.Log("Rigidbody disabled: Correct approach detected.");
+              Debug.Log("Rigidbody disabled: Correct approach detected.");
             }
             else
             {

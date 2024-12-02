@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{133075b8-0c0e-4ffa-803c-b1d3d1fa5675}">
+		<property name="assetPath">
+			<value>Retro Game Music Loop by ProdByRey Id-715708.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>58.18183333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{151cccc8-f404-412d-aa0c-77b5c2385b7b}</destination>
+		</relationship>
+	</object>
+</objects>
