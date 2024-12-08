@@ -307,8 +307,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: FMOD_HNC_GameAmbiences/FMOD_HNC_GameAmbiences.fspro
-  sourceBankPath: FMOD_HNC_GameAmbiences/Build
+  sourceProjectPath: FMOD_HNC_PrisonScene/FMOD_HNC_PrisonScene.fspro
+  sourceBankPath: FMOD_HNC_PrisonScene/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
