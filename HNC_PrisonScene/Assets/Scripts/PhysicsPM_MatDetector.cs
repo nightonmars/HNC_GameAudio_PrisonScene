@@ -21,7 +21,7 @@ public class PhysicsPM_MatDetector : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        PhysicMaterial material = hit.collider.sharedMaterial;
+        PhysicsMaterial material = hit.collider.sharedMaterial;
 
         if (material != null)
         {

@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Create PhysicMaterial", menuName = "New PhysicMaterial/Create New Material")]
 public class PhysicMaterialCreator : ScriptableObject
 {
-    public PhysicMaterial pmMatKey;
+    public PhysicsMaterial pmMatKey;
     public new string name;
     public bool pmMatTrue;
     [Header("Set a value here for each new material")]

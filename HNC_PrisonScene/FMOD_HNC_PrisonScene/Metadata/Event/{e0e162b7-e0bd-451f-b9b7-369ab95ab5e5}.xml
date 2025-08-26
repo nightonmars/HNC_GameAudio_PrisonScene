@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{e0e162b7-e0bd-451f-b9b7-369ab95ab5e5}">
 		<property name="name">
 			<value>Roomtone</value>

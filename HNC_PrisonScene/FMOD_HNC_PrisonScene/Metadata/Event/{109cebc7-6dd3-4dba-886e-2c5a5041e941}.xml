@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{109cebc7-6dd3-4dba-886e-2c5a5041e941}">
 		<property name="name">
 			<value>Torch</value>
@@ -195,9 +195,9 @@
 		</property>
 		<relationship name="modules">
 			<destination>{11498c06-8bc1-4c52-a755-2b9a9de40c1a}</destination>
-			<destination>{ed638449-b578-4d9f-beba-13ed86091eb7}</destination>
 			<destination>{46d97c4c-d891-4ba9-b71f-08c78de6c26a}</destination>
 			<destination>{a272cd78-8a5d-4329-bf6d-424a0abc349b}</destination>
+			<destination>{ed638449-b578-4d9f-beba-13ed86091eb7}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{dd6eb063-c27e-45fa-8256-99e46ac074d7}" />

@@ -49,7 +49,7 @@ public class FloorContactChecker : MonoBehaviour
 
         if (rb != null)
         {
-            Vector3 velocity = rb.velocity;
+            Vector3 velocity = rb.linearVelocity;
 //            Debug.Log("Rigidbody Velocity: " + velocity);
 
             // Check if velocity has stopped
